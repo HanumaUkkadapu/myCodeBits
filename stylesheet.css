@@ -174,12 +174,12 @@ header h1{
 #bSlider, #bSlider::-webkit-slider-thumb{
 	background: #2222DD;
 }
-// For Firefox
+/*For Firefox*/
 #rSlider::-moz-range-thumb{
 	background: #dd2222;
 }
 #gSlider::-moz-range-thumb{
-    background: #22dd22;
+   	background: #22dd22;
 }
 #bSlider::-moz-range-thumb{
 	background: #2222dd;
