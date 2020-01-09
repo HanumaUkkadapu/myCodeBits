@@ -2,7 +2,7 @@
   OAuth Token: 178e972ba461b3efce2d9abe5e787a5f8026bc8d
   generated on: 10-01-2020
 */
-var GitHub = require('github-api');
+//var GitHub = require('github-api');
 
 // basic auth
 var gh = new GitHub({
