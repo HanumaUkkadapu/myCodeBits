@@ -217,7 +217,7 @@ a#materialPalette{
 }
 
 #preset-div{
-	height: 100px;
+	height: auto;
 	width: 100%;
 	padding: 0;
 	overflow-x: auto;
