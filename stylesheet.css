@@ -1,7 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900i|Roboto+Mono&display=swap');
 /*
-@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap');
-*/
-
 @font-face{
     font-family: "Roboto";
     src: url("fonts/regular/Roboto.ttf");
@@ -14,6 +12,7 @@
     font-family: "Roboto Black Italic";
     src: url("fonts/Roboto-BlackItalic.ttf");
 }
+*/
 :root{
 	--color: #AAA;
 }
@@ -29,6 +28,7 @@ body{
 	height: 100vh;/*calc(100vh - 16px)*/
 	width: 100vw;/*calc(100vw - 8px)*/
 	font-family: 'Roboto';
+	font-weight: 400;
 	box-sizing: border-box;
 	
 	display: flex;
@@ -38,7 +38,8 @@ body{
 }
 
 h1, h2, h3, h4, h5, h6{
-	font-family: 'Roboto Black Italic';
+	font-family: 'Roboto';
+	font-weight: 900i;
 	text-transform: uppercase;
 }
 
