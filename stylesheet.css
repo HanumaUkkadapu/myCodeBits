@@ -133,9 +133,19 @@ header h1{
 	border-radius: 2px;
 	outline: none;
 }
-.slider::-webkit-slider-thumb , .slider::-moz-range-thumb{
+.slider::-webkit-slider-thumb{
 	-webkit-appearance: none;
-	-moz-animation: none;
+	cursor: pointer;
+	width: 14px;
+	height: 14px;
+	border: none;
+	border-radius: 11px;
+	box-shadow: 0 2px 6px -2px rgba(0,0,0,0.5);
+	background: #FFF;
+	outline: none;
+}
+.slider::-moz-range-thumb{
+	-moz-appearance: none;
 	cursor: pointer;
 	width: 14px;
 	height: 14px;
@@ -155,14 +165,24 @@ header h1{
 	align-self: center;
 }
 */
-#rSlider, #rSlider::-webkit-slider-thumb, #rSlider::-moz-range-thumb{
+#rSlider, #rSlider::-webkit-slider-thumb{
 	background: #dd2222;
 }
-#gSlider, #gSlider::-webkit-slider-thumb, #gSlider::-moz-range-thumb{
+#gSlider, #gSlider::-webkit-slider-thumb{
 	background: #22DD22;
 }
-#bSlider, #bSlider::-webkit-slider-thumb, #bSlider::-moz-range-thumb{
+#bSlider, #bSlider::-webkit-slider-thumb{
 	background: #2222DD;
+}
+// For Firefox
+#rSlider::-moz-range-thumb{
+	background: #dd2222;
+}
+#gSlider::-moz-range-thumb{
+    background: #22dd22;
+}
+#bSlider::-moz-range-thumb{
+	background: #2222dd;
 }
 
 .rgbOut{
