@@ -3,6 +3,7 @@
   generated on: 10-01-2020
 */
 //var GitHub = require('github-api');
+import GitHub from 'github-api';
 
 // basic auth
 var gh = new GitHub({
