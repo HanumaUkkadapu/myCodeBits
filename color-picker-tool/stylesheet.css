@@ -28,6 +28,7 @@ html,body{
 body{
 	height: 100vh;/*calc(100vh - 16px)*/
 	width: 100vw;/*calc(100vw - 8px)*/
+	min-width: 440px;
 	font-family: 'Roboto';
 	font-weight: 400;
 	box-sizing: border-box;
@@ -300,7 +301,7 @@ footer i.fa-heart{
 	color: #FF0000;
 }
 
-@media(max-width: 768px){
+@media(max-width: 900px){
 	body{
 		font-size: 16px;
 	}
