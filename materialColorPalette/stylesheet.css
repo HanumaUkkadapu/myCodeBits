@@ -89,7 +89,7 @@ select {
   appearance: none;
   color: var(--baseFg);
   outline: 0;
-  padding: 4px;
+  padding: 4px 1ch;
   background-image: linear-gradient(var(--baseFg), var(--baseFg)),
     linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
     linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
@@ -117,8 +117,8 @@ select:active {
 }
 
 output#out1{
-	width: calc(8ch + 16px);
-	padding: 5px 8px;
+	width: 9ch;
+	padding: 5px 1ch;
 	font-family: 'Roboto Mono';
 	font-size: 13px;
 	background: #fff;
