@@ -53,14 +53,16 @@ function JSONloaded(data){
 	function createPaletteColor(bgColor, colorName){
 		var colorBox = document.createElement('div');
 		var colorNameSpan = document.createElement('span');
-		colorBox.className = 'color-box';
-		colorBox.addEventListener("click", colorClick(this.id));
-		colorNameSpan.className = 'color-name';
 		colorBox.append(colorNameSpan);
+		colorNameSpan.className = 'color-name';
+		palette.append(colorBox);
+		colorBox.className = 'color-box';
 		colorBox.style.background = bgColor;
 		colorBox.childNodes[0].append(colorName.toUpperCase());
 		colorBox.id = colorName;
-		palette.append(colorBox);
+		colorBox.addEventListener("click", function(){
+			colorClick(this.id);
+		});
 		//console.log(bgColor+'\t'+colorNameCaps+'\n');
 	}
 
