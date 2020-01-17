@@ -6,11 +6,7 @@ async function loadJSON(link){
 
 //loading JSON
 loadJSON('https://hanumaukkadapu.github.io/myCodeBits/materialColorPalette/materialColors.json')
-	.then(data => {
-		//console.log(data);
-		JSONloaded(data);
-	}
-);
+	.then(data => /*console.log(data);*/JSONloaded(data));
 
 function JSONloaded(data){
 	const optSel = document.getElementById('shades');
@@ -21,19 +17,14 @@ function JSONloaded(data){
 	const colorNames = Object.keys(colorsObj);
 	const shades = Object.keys(colorsObj[colorNames[0]]);
 	//console.log(colorsObj.red["100"]);
-
 	// setting select option values
 	for(var i=0;i<shades.length;i++){
 		var option = '<option value="'+shades[i]+'" >'+shades[i].toUpperCase()+'</option>';
 		optSel.insertAdjacentHTML('beforeend', option);
-		if(i==shades.length - 1){
-			setSelVal();
+		if(i==shades.length-1){
+			optSel.value = 500;
+			changeShades(optSel.value);
 		}
-	}
-
-	function setSelVal(){
-		optSel.value = 500;
-		changeShades(optSel.value);
 	}
 
 	// changing color palette on selecting a tone
@@ -63,7 +54,7 @@ function JSONloaded(data){
 		var colorBox = document.createElement('div');
 		var colorNameSpan = document.createElement('span');
 		colorBox.className = 'color-box';
-		colorBox.setAttribute('onclick','colorClick(this.id);');
+		colorBox.addEventListener("click" => colorClick(this.id));
 		colorNameSpan.className = 'color-name';
 		colorBox.append(colorNameSpan);
 		colorBox.style.background = bgColor;
