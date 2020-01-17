@@ -7,7 +7,7 @@ async function loadJSON(link){
 //loading JSON
 loadJSON('https://hanumaukkadapu.github.io/myCodeBits/materialColorPalette/materialColors.json')
 	.then(data => {
-		console.log(data);
+		//console.log(data);
 		JSONloaded(data);
 	}
 );
