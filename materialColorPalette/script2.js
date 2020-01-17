@@ -57,20 +57,19 @@ function JSONloaded(data){
 			obj.lastElementChild.remove();
 		}
 	}
-	// template to clone from
-	var colorBox = document.createElement('div');
-	var colorNameSpan = document.createElement('span');
-	colorBox.className = 'color-box';
-	colorNameSpan.className = 'color-name';
-	colorBox.append(colorNameSpan);
-	console.log(colorBox.childNodes.length);
+	
+	//console.log(colorBox.childNodes.length);
 	// create Palette color boxes and names
 	function createPaletteColor(bgColor, colorName){
-		let colorBox2 = colorBox.cloneNode(true);
-		colorBox2.style.background = bgColor;
-		colorBox2.childNodes[0].append(colorName.toUpperCase());
-		colorBox2.id = colorName;
-		palette.append(colorBox2);
+		var colorBox = document.createElement('div');
+		var colorNameSpan = document.createElement('span');
+		colorBox.className = 'color-box';
+		colorNameSpan.className = 'color-name';
+		colorBox.append(colorNameSpan);
+		colorBox.style.background = bgColor;
+		colorBox.childNodes[0].append(colorName.toUpperCase());
+		colorBox.id = colorName;
+		palette.append(colorBox);
 		//console.log(bgColor+'\t'+colorNameCaps+'\n');
 	}
 
