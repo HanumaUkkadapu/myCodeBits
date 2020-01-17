@@ -75,80 +75,82 @@ select#shades{
 }
 */
 :root {
-  --radius: 2px;
-  --baseFg: #222;
-  --baseBg: white;
-  --accentFg: #006fc2;
-  --accentBg: #bae1ff;
+	--radius: 2px;
+	--baseFg: #222;
+	--baseBg: white;
+	--accentFg: #006fc2;
+	--accentBg: #bae1ff;
 }
 
 /*
 select {
-  //font: 400 12px/1.3 Sans-Serif;
+	//font: 400 12px/1.3 Sans-Serif;
 	font-family: 'Roboto Mono' !important;
-  -webkit-appearance: none;
-  appearance: none;
-  color: var(--baseFg);
-  outline: 0;
-  padding: 4px 1ch;
-  background-image: linear-gradient(var(--baseFg), var(--baseFg)),
-    linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
-  background-position: right 20px center, right bottom, right bottom, right bottom;   
+	-webkit-appearance: none;
+	appearance: none;
+	color: var(--baseFg);
+	background: #fff;
+	outline: 0;
+	padding: 4px 1ch;
+	background-image: linear-gradient(var(--baseFg), var(--baseFg)),
+	linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
+	linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
+	linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
+	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+	background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+	background-position: right 20px center, right bottom, right bottom, right bottom;   
 }
 
 select:hover {
-  background-image: linear-gradient(var(--accentFg), var(--accentFg)),
-    linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
-    linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
+	background-image: linear-gradient(var(--accentFg), var(--accentFg)),
+	linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
+	linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
+	linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
 }
 
 select:active {
-  background-image: linear-gradient(var(--accentFg), var(--accentFg)),
-    linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
-    linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
-  color: var(--accentBg);
-  border-color: var(--accentFg);
-  background-color: var(--accentFg);
+	background-image: linear-gradient(var(--accentFg), var(--accentFg)),
+	linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
+	linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
+	linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
+	color: var(--accentBg);
+	border-color: var(--accentFg);
+	background-color: var(--accentFg);
 }
 */
 select {
-  //font: 400 12px/1.3 Sans-Serif;
+	//font: 400 12px/1.3 Sans-Serif;
 	font-family: 'Roboto Mono' !important;
-  -webkit-appearance: none;
-  appearance: none;
-  color: var(--baseFg);
-  outline: 0;
-  padding: 4px 1ch;
-  background-image: linear-gradient(var(--baseFg), var(--baseFg)),
-    linear-gradient(-135deg, transparent 50%, var(--baseBg) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--baseBg) 50%),
-    linear-gradient(var(--baseBg) 42%, var(--accentFg) 42%);
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
-  background-position: right 20px center, right bottom, right bottom, right bottom;   
+	-webkit-appearance: none;
+	appearance: none;
+	color: var(--baseFg);
+	background: #fff;
+	outline: 0;
+	padding: 4px 1ch;
+	background-image: linear-gradient(var(--baseFg), var(--baseFg)),
+	linear-gradient(-135deg, transparent 50%, var(--baseBg) 50%),
+	linear-gradient(-225deg, transparent 50%, var(--baseBg) 50%),
+	linear-gradient(var(--baseBg) 42%, var(--accentFg) 42%);
+	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+	background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+	background-position: right 20px center, right bottom, right bottom, right bottom;   
 }
 
 select:hover {
-  background-image: linear-gradient(var(--accentBg), var(--accentBg)),
-    linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
+	background-image: linear-gradient(var(--accentBg), var(--accentBg)),
+	linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
+	linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
+	linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
 }
 
 select:active {
-  background-image: linear-gradient(var(--accentBg), var(--accentBg)),
-    linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
-  color: var(--accentFg);
-  border-color: var(--accentBg);
-  background-color: var(--baseBg);
+	background-image: linear-gradient(var(--accentBg), var(--accentBg)),
+	linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
+	linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
+	linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
+	color: var(--accentFg);
+	border-color: var(--accentBg);
+	background-color: var(--baseBg);
 }
 
 output#out1{
