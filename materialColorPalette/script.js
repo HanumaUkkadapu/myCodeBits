@@ -63,7 +63,7 @@ function JSONloaded(data){
 		var colorBox = document.createElement('div');
 		var colorNameSpan = document.createElement('span');
 		colorBox.className = 'color-box';
-		colorBox.setAttribute("onclick","colorClick(this.id);");
+		colorBox.onclick = colorClick(this.id);
 		colorNameSpan.className = 'color-name';
 		colorBox.append(colorNameSpan);
 		colorBox.style.background = bgColor;
