@@ -119,7 +119,8 @@ select:active {
 }
 */
 select {
-	//font: 400 12px/1.3 Sans-Serif;
+	//
+	font: 400 12px/1.3 Sans-Serif;
 	font-family: 'Roboto Mono' !important;
 	-webkit-appearance: none;
 	appearance: none;
@@ -133,23 +134,23 @@ select {
 	linear-gradient(var(--baseBg) 42%, var(--accentFg) 42%);
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
 	background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
-	background-position: right 20px center, right bottom, right bottom, right bottom;   
+	background-position: right 20px center, right bottom, right bottom, right bottom;
 }
 
 select:hover {
-	background-image: linear-gradient(var(--accentBg), var(--accentBg)),
+	background-image: linear-gradient(var(--baseFg), var(--baseFg)),
 	linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
 	linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
 	linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
 }
 
 select:active {
-	background-image: linear-gradient(var(--accentBg), var(--accentBg)),
+	background-image: linear-gradient(var(--accentFg), var(--accentFg)),
 	linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
 	linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
 	linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
-	color: var(--accentFg);
-	border-color: var(--accentBg);
+	color: var(--baseFg);
+	border-color: var(--accentFg);
 	background-color: var(--baseBg);
 }
 
