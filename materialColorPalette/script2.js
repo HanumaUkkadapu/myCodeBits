@@ -5,35 +5,41 @@ async function loadJSON(link){
 }
 
 //loading JSON
-loadJSON('https://hanumaukkadapu.github.io/myCodeBits/materialColorPalette/materialColors.json').then(data => console.log(data));
+loadJSON('https://hanumaukkadapu.github.io/myCodeBits/materialColorPalette/materialColors.json')
+	.then(data => {
+		console.log(data);
+		JSONloaded(data);
+	}
+);
 
-const optSel = document.getElementById('shades');
-const palette = document.getElementById('palette');
-const output1 = document.getElementById('out1');
+function JSONloaded(data){
+	const optSel = document.getElementById('shades');
+	const palette = document.getElementById('palette');
+	const output1 = document.getElementById('out1');
 
-const colorsObj = data;
-//console.log(colorsObj.red["100"]);
-const colorNames = Object.keys(colorsObj);
-const shades = Object.keys(colorsObj[colorNames[0]]);
+	const colorsObj = data;
+	//console.log(colorsObj.red["100"]);
+	const colorNames = Object.keys(colorsObj);
+	const shades = Object.keys(colorsObj[colorNames[0]]);
 
-// setting select option values
-for(var i=0;i<shades.length;i++){
+	// setting select option values
+	for(var i=0;i<shades.length;i++){
 	var option = '<option value="'+shades[i]+'" >'+shades[i].toUpperCase()+'</option>';
 	optSel.insertAdjacentHTML('beforeend', option);
-}
+	}
 
-window.onload = function(){
+	window.onload = function(){
 	optSel.value = 500;
 	changeShades(optSel.value);
 	colorClick();
-};
+	};
 
-// changing color palette on selecting a tone
-optSel.addEventListener("change",function(){
+	// changing color palette on selecting a tone
+	optSel.addEventListener("change",function(){
 	changeShades(optSel.value);
-});
+	});
 
-function changeShades(shadeVal){
+	function changeShades(shadeVal){
 	clear(palette);
 	for(i=0;i<colorNames.length;i++){
 		if(shadeVal in colorsObj[colorNames[i]]){
@@ -42,31 +48,31 @@ function changeShades(shadeVal){
 		}
 	}
 	colorClick();
-}
-// removing object's child nodes
-function clear(obj){
+	}
+	// removing object's child nodes
+	function clear(obj){
 	while(obj.hasChildNodes() && obj.childNodes.length != 1){
 		obj.lastElementChild.remove();
 	}
-}
-// template to clone from
-var colorBox = document.createElement('div');
-var colorNameSpan = document.createElement('span');
-colorBox.className = 'color-box';
-colorNameSpan.className = 'color-name';
-colorBox.append(colorNameSpan);
-console.log(colorBox.childNodes.length);
-// create Palette color boxes and names
-function createPaletteColor(bgColor, colorName){
+	}
+	// template to clone from
+	var colorBox = document.createElement('div');
+	var colorNameSpan = document.createElement('span');
+	colorBox.className = 'color-box';
+	colorNameSpan.className = 'color-name';
+	colorBox.append(colorNameSpan);
+	console.log(colorBox.childNodes.length);
+	// create Palette color boxes and names
+	function createPaletteColor(bgColor, colorName){
 	let colorBox2 = colorBox.cloneNode(true);
 	colorBox2.style.background = bgColor;
 	colorBox2.childNodes[0].append(colorName.toUpperCase());
 	colorBox2.id = colorName;
 	palette.append(colorBox2);
 	//console.log(bgColor+'\t'+colorNameCaps+'\n');
-}
+	}
 
-function colorClick(){
+	function colorClick(){
 	//NodeList.prototype.forEach = Array.prototype.forEach;
 	var paletteChild = [...palette.childNodes];
 	//console.log(typeof paletteChild+'\t'+paletteChild.length);
@@ -86,4 +92,5 @@ function colorClick(){
 			output1.innerHTML = '#'+rgb[0]+rgb[1]+rgb[2];//colorsObj[elem.id][optSel.value];
 		});
 	});
+	}
 }
