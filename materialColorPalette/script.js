@@ -54,7 +54,7 @@ function JSONloaded(data){
 		var colorBox = document.createElement('div');
 		var colorNameSpan = document.createElement('span');
 		colorBox.className = 'color-box';
-		colorBox.addEventListener("click" => colorClick(this.id));
+		colorBox.addEventListener("click", colorClick(this.id));
 		colorNameSpan.className = 'color-name';
 		colorBox.append(colorNameSpan);
 		colorBox.style.background = bgColor;
