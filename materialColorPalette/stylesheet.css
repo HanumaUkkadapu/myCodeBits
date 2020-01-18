@@ -155,7 +155,7 @@ select:active {
 }
 
 output#out1{
-	width: 9ch;
+	width: calc(9ch + 2px);
 	padding: 5px 1ch;
 	font-family: 'Roboto Mono';
 	font-size: 13px;
