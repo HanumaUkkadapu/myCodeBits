@@ -31,6 +31,7 @@ body{
 #paletteHead{
 	background: #e3e3e3;
 	border-bottom: 3.2px solid #222;
+	padding: 5px;
 	
 	flex: 2 1 auto;
 	display: flex;
