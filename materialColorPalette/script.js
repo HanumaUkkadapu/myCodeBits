@@ -43,7 +43,7 @@ function JSONloaded(data){
 	}
 	// removing object's child nodes
 	function clear(obj){
-		while(obj.hasChildNodes() && obj.childNodes.length != 1){
+		while(obj.childElementCount>=1){
 			obj.lastElementChild.remove();
 		}
 	}
@@ -71,6 +71,8 @@ function JSONloaded(data){
 		//console.log(elem.id+'\t'+colorNo);
 		var colorSel = colorsObj[elemId][optSel.value];
 		document.body.style.background = colorSel;
+		output1.innerHTML = colorSel;
+		/*
 		var rgb = ['','',''];
 		for(i=1;i<7;i++){
 			if(i<3)	rgb[0] = rgb[0].concat(colorSel[i]);
@@ -79,5 +81,6 @@ function JSONloaded(data){
 		}
 		//console.log(colorSel+'\t'+rgb[0]+','+rgb[1]+','+rgb[2]);
 		output1.innerHTML = '#'+rgb[0]+rgb[1]+rgb[2];//colorsObj[elem.id][optSel.value];
+		*/
 	}
 }
