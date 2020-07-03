@@ -63,6 +63,12 @@ body{
 .selectWrapper output, #labelWrapper label, #labelWrapper select{
 	height: 30px;
 }
+#labelWrapper{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: stretch;
+}
 #labelWrapper label{
 	background: #ddd;
 	border-bottom: 1px solid #222;
