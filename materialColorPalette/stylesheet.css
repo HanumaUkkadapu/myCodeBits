@@ -48,8 +48,6 @@ body{
 
 .selectWrapper{
 	padding: 5px 10px;
-	overflow-x: auto;
-	
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: space-evenly;
@@ -58,6 +56,7 @@ body{
 .labelWrapper{
 	overflow: hidden;
 	margin: 5px 0;
+	width: 100%;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
