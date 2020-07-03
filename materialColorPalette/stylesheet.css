@@ -58,6 +58,8 @@ body{
 .selectWrapper > *{
 	height: 30px;
 	margin: 5px 0;
+}
+.selectWrapper select, .selectWrapper output{
 	border: 1px solid #222;
 	border-radius: 2px;
 }
