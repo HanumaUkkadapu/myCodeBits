@@ -57,14 +57,13 @@ body{
 }
 .selectWrapper output{
 	margin: 5px 0;
+	border-radius: 2px;
 }
 .selectWrapper output, #labelWrapper label, #labelWrapper select{
 	height: 30px;
 	border: 1px solid #222;
-	border-radius: 2px;
 }
 #labelWrapper{
-	background: #fff;
 	overflow: hidden;
 	margin: 5px 0;
 	display: flex;
