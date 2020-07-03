@@ -55,30 +55,28 @@ body{
 	justify-content: space-evenly;
 	align-items: stretch;
 }
-.selectWrapper output{
-	margin: 5px 0;
-	border-radius: 2px;
-}
-.selectWrapper output, #labelWrapper label, #labelWrapper select{
-	height: 30px;
-	border: 1px solid #222;
-}
-#labelWrapper{
+.labelWrapper{
 	overflow: hidden;
 	margin: 5px 0;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
 }
-#labelWrapper label{
+.labelWrapper > *{
+	height: 30px;
+	border: 1px solid #222;
+}
+.labelWrapper label{
 	background: #ddd;
 	border-right: none;
-	border-radius: 0;
 	border-radius: 2px 0 0 2px;
 	padding: 0 4px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.labelWrapper select, .labelWrapper output{
+	border-radius: 0 2px 2px 0;
 }
 /*
 select#shades{
@@ -144,10 +142,8 @@ select {
 	color: var(--baseFg);
 	background: #fff;
 	outline: 0;
-	width: calc(9ch + 2px);
+	width: calc(9ch);
 	padding: 4px 1ch;
-	border-radius: 0;
-	border-radius: 0 2px 2px 0;
 	background-image: linear-gradient(var(--baseFg), var(--baseFg)),
 	linear-gradient(-135deg, transparent 50%, var(--baseBg) 50%),
 	linear-gradient(-225deg, transparent 50%, var(--baseBg) 50%),
@@ -175,7 +171,7 @@ select:active {
 }
 
 output#out1{
-	min-width: calc(9ch + 2px);
+	width: calc(9ch + 2px);
 	padding: 5px 1ch;
 	font-family: 'Roboto Mono';
 	font-size: 13px;
