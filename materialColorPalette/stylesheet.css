@@ -17,6 +17,7 @@ body{
 	box-sizing: border-box;
 }
 .wrapper{
+	background: #e3e3e3;
 	width: 512px;
 	padding: 0;
 	margin: 40px;
@@ -29,7 +30,6 @@ body{
 	flex-flow: column nowrap;
 }
 #paletteHead{
-	background: #e3e3e3;
 	border-bottom: 3.2px solid #222;
 	padding: 5px;
 	
