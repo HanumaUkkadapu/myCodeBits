@@ -257,8 +257,8 @@ a#materialPalette{
 	//background: #EEE;
 }
 .preset-color{
-	width: 80px;
-	height: 100px;
+	width: 90px;
+	height: 110px;
 	padding: 0;
 	border-right: 1px solid #DDD;
 	
@@ -270,8 +270,8 @@ a#materialPalette{
 }
 .preset-color-box{
 	margin: 7px;
-	height: 66px;
-	width: 66px;
+	height: 76px;
+	width: 76px;
 	//background: #EEE;
 	//border: 1px solid #DDD;
 	border-radius: 5px;
