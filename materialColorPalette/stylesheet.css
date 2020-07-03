@@ -75,6 +75,7 @@ body{
 	border-right: none;
 	border-radius: 0;
 	border-radius: 2px 0 0 2px;
+	padding: 0 4px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -143,6 +144,7 @@ select {
 	color: var(--baseFg);
 	background: #fff;
 	outline: 0;
+	width: calc(9ch + 2px);
 	padding: 4px 1ch;
 	border-radius: 0;
 	border-radius: 0 2px 2px 0;
