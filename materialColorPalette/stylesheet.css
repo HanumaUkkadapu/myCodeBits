@@ -55,13 +55,17 @@ body{
 	justify-content: space-evenly;
 	align-items: stretch;
 }
-.selectWrapper > *{
-	height: 30px;
+.selectWrapper #labelWrapper, .selectWrapper output{
 	margin: 5px 0;
-}
-.selectWrapper select, .selectWrapper output{
 	border: 1px solid #222;
 	border-radius: 2px;
+}
+.selectWrapper output, #labelWrapper label, #labelWrapper select{
+	height: 30px;
+}
+#labelWrapper label{
+	background: #ddd;
+	border-bottom: 1px solid #222;
 }
 /*
 select#shades{
