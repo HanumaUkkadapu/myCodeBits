@@ -55,7 +55,7 @@ body{
 }
 .labelWrapper{
 	overflow: hidden;
-	margin: 5px 0;
+	margin: 2px 0;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
