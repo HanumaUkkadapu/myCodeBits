@@ -55,17 +55,18 @@ body{
 	justify-content: space-evenly;
 	align-items: stretch;
 }
-.selectWrapper #labelWrapper, .selectWrapper output{
+.selectWrapper output{
 	margin: 5px 0;
-	border: 1px solid #222;
-	border-radius: 2px;
 }
 .selectWrapper output, #labelWrapper label, #labelWrapper select{
 	height: 30px;
+	border: 1px solid #222;
+	border-radius: 2px;
 }
 #labelWrapper{
 	background: #fff;
 	overflow: hidden;
+	margin: 5px 0;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -73,8 +74,9 @@ body{
 }
 #labelWrapper label{
 	background: #ddd;
-	border-bottom: 1px solid #222;
-	border-radius: 2px 2px 0 0 ;
+	border-bottom: none;
+	border-radius: 0;
+	border-radius: 2px 2px 0 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -144,6 +146,7 @@ select {
 	background: #fff;
 	outline: 0;
 	padding: 4px 1ch;
+	border-radius: 0;
 	border-radius: 0 0 2px 2px;
 	background-image: linear-gradient(var(--baseFg), var(--baseFg)),
 	linear-gradient(-135deg, transparent 50%, var(--baseBg) 50%),
