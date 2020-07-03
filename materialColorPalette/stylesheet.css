@@ -72,7 +72,7 @@ body{
 }
 #labelWrapper label{
 	background: #ddd;
-	border-bottom: none;
+	border-right: none;
 	border-radius: 0;
 	border-radius: 2px 0 0 2px;
 	display: flex;
@@ -173,7 +173,7 @@ select:active {
 }
 
 output#out1{
-	width: calc(9ch + 2px);
+	min-width: calc(9ch + 2px);
 	padding: 5px 1ch;
 	font-family: 'Roboto Mono';
 	font-size: 13px;
