@@ -50,12 +50,15 @@ html, body{
 body.col{
 	width: 100vw;
 	height: 100vh;
-    padding: 8px;
-    font-family: 'Roboto';
-    overflow: scroll;
-    
-    justify-content: center;
-    align-items: stretch;
+	padding: 8px;
+	font-family: 'Roboto';
+	overflow: scroll;
+
+	justify-content: center;
+	align-items: stretch;
+}
+button{
+	font-family: 'Roboto';
 }
 
 header.col{
