@@ -4,33 +4,33 @@
 */
 
 @font-face {
-    font-family: "Roboto";
-    src: url("fonts/Roboto.ttf");
+	font-family: "Roboto";
+	src: url("src/fonts/Roboto.ttf");
 }
 @font-face {
-    font-family: "Roboto Black";
-    src: url("fonts/Roboto-Black.ttf");
+	font-family: "Roboto Black";
+	src: url("src/fonts/Roboto-Black.ttf");
 }
 
 :root{
 	/* bar vars */
-    --barW: 10px;
-    --barM: 5px 1px;
-    /* colorInfo div vars *//*
-    --ciwT: calc(50vh - 86px);
+	--barW: 10px;
+	--barM: 5px 1px;
+	/* colorInfo div vars *//*
+	--ciwT: calc(50vh - 86px);
 	--ciwR: calc(50vw - 86px);*/
 	--ci-bg: #fff;
 	--ci-brd-clr: #aaa;
 	--ci-box-shd: 0 0 6px -1px rgba(0,0,0,0.35);
 	/*--cw-bg: #fff;*/
 	/* Bars colors */
-    --unsorted: #ffb166;
-    --current: #6469b3;	/*blue*/
-    --low: #ff7c75;		/*red*/
-    --high: #8798ed;	/*blue1*/
-    --pivot: #6469a4;	/*64b369-green;6469b3-blue*/
-    --swap: #444;		/*gray*/
-    --sorted: #78ed87;	/*lightGreen*/
+	--unsorted: #ffb166;
+	--current: #6469b3;	/*blue*/
+	--low: #ff7c75;		/*red*/
+	--high: #8798ed;	/*blue1*/
+	--pivot: #6469a4;	/*64b369-green;6469b3-blue*/
+	--swap: #444;		/*gray*/
+	--sorted: #78ed87;	/*lightGreen*/
 }
 *{
     box-sizing: border-box;
