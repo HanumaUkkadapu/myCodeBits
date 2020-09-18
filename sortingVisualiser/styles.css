@@ -1,0 +1,237 @@
+/*
+** Created by:
+** Hanuma Ukkadapu
+*/
+
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto.ttf");
+}
+@font-face {
+    font-family: "Roboto Black";
+    src: url("fonts/Roboto-Black.ttf");
+}
+
+:root{
+	/* bar vars */
+    --barW: 10px;
+    --barM: 5px 1px;
+    /* colorInfo div vars *//*
+    --ciwT: calc(50vh - 86px);
+	--ciwR: calc(50vw - 86px);*/
+	--ci-bg: #fff;
+	--ci-brd-clr: #aaa;
+	--ci-box-shd: 0 0 6px -1px rgba(0,0,0,0.35);
+	/*--cw-bg: #fff;*/
+	/* Bars colors */
+    --unsorted: #ffb166;
+    --current: #6469b3;	/*blue*/
+    --low: #ff7c75;		/*red*/
+    --high: #8798ed;	/*blue1*/
+    --pivot: #6469a4;	/*64b369-green;6469b3-blue*/
+    --swap: #444;		/*gray*/
+    --sorted: #78ed87;	/*lightGreen*/
+}
+*{
+    box-sizing: border-box;
+}
+.flex-cc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col{
+    flex-flow: column nowrap;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+}
+body.col{
+	width: 100vw;
+	height: 100vh;
+    padding: 8px;
+    font-family: 'Roboto';
+    overflow: scroll;
+    
+    justify-content: center;
+    align-items: stretch;
+}
+
+header.col{
+	align-items: stretch;
+	margin: 3px 0;
+}
+header h1{
+	/*background: #666;*/
+	margin: 0;
+	padding: 4px;
+	font-family: 'Roboto Black';
+}
+nav.col{
+	margin: 4px 0;
+	align-items: stretch;
+}
+nav ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav li{
+	justify-content: stretch;
+	flex: 2 1 auto;
+}
+nav li label{
+	background: #cfe2ff;
+	padding: 8px;
+	border: none;
+	font-size: 14px;
+	text-transform: uppercase;
+	flex: 2 1 auto;
+}
+nav li label.active{
+	background: #98c8ff;
+}
+nav li label.disabled{
+	color: #777;
+	background: #e9e9e9;
+}
+nav li label.active.disabled{
+	background: #ccc;
+}
+nav li label input{
+	position: absolute;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	width: 0;
+	height: 0;
+}
+
+#boardWrapper{
+    /*background: #666;*/
+    margin-top: 10px;
+    align-items: stretch;
+}
+
+#openColorInfo{
+	width: 32px;
+	height: 32px;
+	font-size: 30px;
+	align-self: flex-end;
+}
+
+#colorInfoWrapper{
+	--ciwT: calc(50vh - 86px);
+	--ciwR: calc(50vw - 86px);
+	display: none;
+	position: absolute;
+	top: var(--ciwT);
+	right: var(--ciwR);
+	background: var(--ci-bg);
+	border: 1px solid var(--ci-brd-clr);
+	border-radius: 3px;
+	box-shadow: var(--ci-box-shd);
+	padding: 4px;
+}
+#colorInfoWrapper:before{
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	right: 10px;
+	top: -6px;
+	background: var(--ci-bg);
+	box-shadow: var(--ci-box-shd);
+	transform: rotate(45deg);
+	z-index: -1;
+}
+#colorInfoWrapper:after{
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	right: 10px;
+	top: -6px;
+	background: var(--ci-bg);
+	border-top: 1px solid var(--ci-brd-clr);
+	border-left: 1px solid var(--ci-brd-clr);
+	transform: rotate(45deg);
+	z-index: 2;
+}
+
+#colorInfoWrapper .colorWrap{
+    margin: 4px;
+    background: var(--ci-bg);
+    font-size: 13px;
+    justify-content: start;
+}
+
+.colorWrap span.colorBox{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+.colorBox + span{
+    padding: 0 4px;
+}
+
+
+#board{
+    background: transparent;
+    height: 310px;
+    margin: 8px 0;
+    align-items: flex-end;
+}
+.bar{
+    width: var(--barW);
+    margin: var(--barM);
+    justify-content: flex-start;
+    align-items: stretch;
+    font-size: 12px;
+}
+.colorBox.unsorted, .bar{
+	background: var(--unsorted);
+}
+.current{
+	background: var(--current);
+}
+.pivot{
+	background: var(--pivot);
+}
+.low{
+	background: var(--low);
+}
+.high{
+	background: var(--high);
+}
+.swap{
+	background: var(--swap);
+}
+.sorted{
+	background: var(--sorted);
+}
+
+.bar span{
+	background: rgba(255,255,255,0.6);
+	margin: 2px;
+	padding: 2px;
+	font-size: 13px;
+	font-family: Monospace;
+	/*transform: rotate(180deg);
+	/*writing-mode: vertical-lr;*/
+}
+
+
+#btn-div button{
+	width: 50%;
+	padding: 10px;
+    font-size: 16px;
+    /*flex: 2 1 auto;*/
+}
+#btn-div button:first-child{
+    margin-right: 10px;
+}
