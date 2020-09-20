@@ -1,0 +1,118 @@
+<!--
+---- Created by:
+---- Hanuma Ukkadapu
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Insertion sort - Visualised</title>
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+    	
+    </head>
+    <body class="flex-cc col">
+    	
+    	<header class="flex-cc col">
+    		<h1 id="mainHead" class="flex-cc" >Sorting Visualiser</h1>
+    		<nav id="navBar" class="flex-cc col">
+    			<ul class="flex-cc" id="nav-ul">
+    				<li class="flex-cc">
+    					<label class="flex-cc active" >
+    						BBL
+    						<input type="radio" name="sortType" value="bubble" checked >
+    					</label>
+    				</li>
+    				<li class="flex-cc">
+    					<label class="flex-cc" >
+    						CSHK
+    						<input type="radio" name="sortType" value="cocktailShaker" >
+    					</label>
+    				</li>
+    				<li class="flex-cc">
+    					<label class="flex-cc" >
+    						SEL
+    						<input type="radio" name="sortType" value="selection" >
+    					</label>
+    				</li>
+    				<li class="flex-cc">
+    					<label class="flex-cc" >
+    						DBSL
+    						<input type="radio" name="sortType" value="doubleSelection" >
+    					</label>
+    				</li>
+    				<li class="flex-cc">
+    					<label class="flex-cc" >
+    						INS
+    						<input type="radio" name="sortType" value="insertion" >
+    					</label>
+    				</li>
+    				<li class="flex-cc">
+    					<label class="flex-cc" >
+    						QCK
+    						<input type="radio" name="sortType" value="quick" >
+    					</label>
+    				</li>
+    				<li class="flex-cc">
+    					<label class="flex-cc" >
+    						CNT
+    						<input type="radio" name="sortType" value="counting" >
+    					</label>
+    				</li>
+    				<li class="flex-cc">
+    					<label class="flex-cc" >
+    						RDX
+    						<input type="radio" name="sortType" value="radix" >
+    					</label>
+    				</li>
+    				<li class="flex-cc">
+    					<label class="flex-cc" >
+    						MRG
+    						<input type="radio" name="sortType" value="merge" >
+    					</label>
+    				</li>
+    				<li class="flex-cc">
+    					<label class="flex-cc" >
+    						HEP
+    						<input type="radio" name="sortType" value="heap" >
+    					</label>
+    				</li>
+    			</ul>
+    		</nav>
+    	</header>
+        
+        <section id="boardWrapper" class="flex-cc col" >
+        	
+        	<button id="openColorInfo" class="flex-cc" >&#8505;</button>
+        	
+        	<div id="colorInfoWrapper">
+        	</div>
+        	
+        	<div id="board" class="flex-cc" >
+        	</div>
+        	
+        </section>
+       	
+        <div id="btn-div" class="flex-cc" >
+            <button id="genNewArr">Generate New Array</button>
+            <button id="startSort">Start Sorting..!</button>
+        </div>
+       	
+       	<!--
+       	<div id="alertDiv" class="flex-cc col" >
+       		
+       	</div>
+       	-->
+       	
+       	<script type="text/javascript" src="zzFirst5Sorts.js" defer ></script>
+       	<script type="text/javascript" src="zzQuickSort.js" defer ></script>
+       	<script type="text/javascript" src="zzSecond5Sorts.js" defer ></script>
+       	<!--
+       	<script type="text/javascript" src="zzMergeSort.js" defer ></script>
+       	<script type="text/javascript" src="zzHeapSort.js" defer ></script>
+       	-->
+        <script type="text/javascript" src="zzMainScript.js" defer ></script>
+        
+    </body>
+</html>
