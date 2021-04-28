@@ -62,7 +62,7 @@ input.valid{
 	color: #777;
 	background: #f2f2f2;
 	border-radius: 6px;
-	font-family: 'Monospace';
+	font-family: monospace;
 	font-size: 14px;
 	overflow-wrap: break-word;
 }
