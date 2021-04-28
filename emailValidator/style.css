@@ -24,7 +24,7 @@ label, input{
     border: 1.4px solid #ccc;
 }
 label{
-	font-family: 'Sans-Serif';
+    font-family: sans-serif;
     font-weight: bold;
     padding: 6px;
     background: #f6f6f6;
