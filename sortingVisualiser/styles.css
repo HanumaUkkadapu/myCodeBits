@@ -194,10 +194,26 @@ nav li label input {
 }
 
 #openColorInfo {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
+    padding: 4px;
+    background-color: none;
+    border: 2px solid transparent;
+    border-radius: 32px;
     font-size: 30px;
     align-self: flex-end;
+}
+
+#openColorInfo:hover {
+    background-color: #d0d0d7;
+}
+
+#openColorInfo:focus {
+    border-color: #222;
+}
+
+#openColorInfo:active {
+    background-color: #b3b3b9;
 }
 
 #colorInfoWrapper {
