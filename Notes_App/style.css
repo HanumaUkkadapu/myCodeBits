@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.flex-cc {
+    display: flex;
+    justify-content: center;
+}
+
+.col {
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+
+/******************* Common li link styles **********************/
+
+.nav-ul,
+.links-ul {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-li,
+.btn-li {
+    list-style: none;
+}
+
+.nav-link,
+.btn-link {
+    text-decoration: none;
+    color: black;
+}
+
+
+/*********************************************************************/
+
+#navHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2px;
+    background-color: aquamarine;
+}
+
+#navHeader nav {
+    margin: 4px 8px;
+    width: 100%;
+}
+
+#navHeader nav .nav-ul {
+    margin-left: auto;
+}
+
+#navHeader nav .nav-link {
+    margin: 1px;
+    padding: 6px 8px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+#navHeader nav .nav-link:hover {
+    background-color: rgba(22, 22, 22, 0.1);
+}
+
+#navHeader nav .nav-link:focus {
+    border: 1px solid rgba(22, 22, 22, 0.9);
+}
+
+#navHeader nav .nav-link:focus {
+    background-color: rgba(22, 22, 22, 0.2);
+}
+
+
+/*********************************************************************/
+
+.btn-li {
+    margin: 4px;
+}
+
+.btn-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    border: 1px solid #222;
+    border-radius: 4px;
+    height: 36px;
+    padding: 12px;
+}
+
+
+/*********************************************************************/
+
+dialog[open] {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.dialogBtnWrapDiv {
+    margin-top: 8px;
+}
+
+.dialogBtnWrapDiv>button:first-of-type {
+    margin-right: 8px;
+}
+
+
+/*********************************************************************/
+
+.noteCard {
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin: 2px;
+    position: relative;
+}
+
+.noteCard>h3,
+.noteCard>p {
+    margin: 0;
+}
+
+.noteCard>.deleteNoteBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create note</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="flex-cc col">
+    <header>Create new note</header>
+    <div class="flex-cc col">
+        <input type="text" name="note-title" id="noteTitle" placeholder="Give me a title">
+        <textarea name="note-body" id="noteBody" placeholder="Start typing..."></textarea>
+        <button onclick="saveNoteDialog.showModal()">Save the note</button>
+        <dialog id="saveNoteDialog">
+            <div>Save the note?</div>
+            <div class="flex-cc dialogBtnWrapDiv">
+                <button id="saveNoteBtn">Yes</button>
+                <button onclick="saveNoteDialog.close()">No</button>
+            </div>
+        </dialog>
+        <dialog id="infoDialog"></dialog>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
