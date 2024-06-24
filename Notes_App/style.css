@@ -1,3 +1,7 @@
+:root {
+    --nav-header-height: 56px;
+}
+
 * {
     box-sizing: border-box;
     font-family: sans-serif;
@@ -53,6 +57,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    height: var(--nav-header-height);
     padding: 2px;
     background-color: aquamarine;
 }
@@ -106,6 +111,27 @@ body {
 
 /*********************************************************************/
 
+#createNoteWrapper {
+    align-items: stretch;
+}
+
+#createNoteWrapper>*:not(dialog) {
+    margin: 3px 0;
+}
+
+#createNoteWrapper input,
+#createNoteWrapper textarea {
+    font-size: 14px;
+}
+
+#noteBody {
+    height: 120px;
+    width: 50vw;
+}
+
+
+/*********************************************************************/
+
 dialog[open] {
     display: flex;
     flex-flow: column nowrap;
@@ -122,16 +148,24 @@ dialog[open] {
 
 /*********************************************************************/
 
+#savedNotesSect {
+    padding: calc( var(--nav-header-height) + 20px) 16px 0 16px;
+    align-items: stretch;
+}
+
 .noteCard {
+    position: relative;
+    margin: 6px;
+    padding: 16px;
     border: 1px solid #444;
     border-radius: 4px;
-    margin: 2px;
-    position: relative;
+    overflow: hidden;
+    align-items: flex-start;
 }
 
 .noteCard>h3,
 .noteCard>p {
-    margin: 0;
+    margin: 2px;
 }
 
 .noteCard>.deleteNoteBtn {

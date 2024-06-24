@@ -9,6 +9,13 @@
 </head>
 
 <body id="gridBox">
+    <section class="flex-cc col" id="savedNotesSect">
+    </section>
+    <dialog id="deleteDialog">
+        Are you sure to delete the note titled <span id="deletedNoteTitle"></span> It will be deleted permanently.
+        <button id="deleteNote">Yes</button>
+        <button onclick="deleteDialog.close()">No</button>
+    </dialog>
     <script src="script.js"></script>
 </body>
 

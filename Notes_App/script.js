@@ -1,6 +1,6 @@
 let root,
     saveNoteBtn, infoDialog, noteTitleElem, noteBodyElem, savedNotes,
-    bodyElem, loadedNotes;
+    bodyElem, loadedNotes, notesSectElem, deleteNote;
 
 class Note {
     constructor(title, body) {
@@ -20,6 +20,56 @@ function countingRuns() {
     sessionStorage.setItem("runCount", `${runCount++}`);
     console.log(runCount, typeof runCount, isNaN(runCount));
     //console.log(sessionStorage.getItem("runCount"));
+}
+
+function deleteAndSaveNotes(noteIndex) {
+    //console.log(loadedNotes);
+    loadedNotes.splice(noteIndex, 1);
+    console.log(loadedNotes);
+    sessionStorage.setItem("savedNotes", JSON.stringify(loadedNotes));
+    if (loadedNotes !== null && loadedNotes.length !== 0) {
+        loadNotes(loadedNotes);
+    }
+}
+
+function loadNotes(notesArr) {
+
+    console.log(notesSectElem.children.length);
+
+    if (notesSectElem.children.length !== 0) {
+        //notesSectElem.replaceWith(notesSectElem.cloneNode(true));
+        notesSectElem.innerHTML = '';
+        console.log(notesSectElem.children.length);
+    }
+    if (notesSectElem.children.length === 0) {
+        notesArr.forEach((el, ind) => {
+            console.log(el, ind);
+            let noteCardElem = document.createElement('div');
+            ['noteCard', 'flex-cc', 'col'].forEach(el => {
+                noteCardElem.classList.add(el);
+            });
+            noteCardElem.dataset.noteIndex = ind;
+            noteCardElem.innerHTML = `<button class="deleteNoteBtn">Delete</button>
+                <h3>${el.title}</h3>
+                <p>${el.body}</p>`;
+            notesSectElem.appendChild(noteCardElem);
+        });
+
+        let deleteNoteBtns = document.getElementsByClassName('deleteNoteBtn');
+        [...deleteNoteBtns].forEach((deleteNoteBtn) => {
+            deleteNoteBtn.addEventListener("click", (el) => {
+                let noteCard = el.target.parentElement;
+                let noteInd = noteCard.dataset.noteIndex;
+                console.log(noteInd);
+                deleteDialog.children[0].innerHTML = `<b>${loadedNotes[noteInd].title}</b>?`;
+                deleteDialog.showModal();
+                deleteDialog.children[1].dataset.noteIndex = noteInd;
+                console.log(deleteDialog.children);
+                //deleteAndSaveNotes(noteCard.dataset.noteIndex);
+            });
+        });
+    }
+
 }
 
 window.onload = () => {
@@ -65,6 +115,12 @@ window.onload = () => {
     noteBodyElem = document.getElementById('noteBody');
 
     //console.log(savedNotes, typeof savedNotes);
+
+    if (bodyElem.id == 'newNoteBody') {
+        noteTitleElem.value = '';
+        noteBodyElem.value = '';
+    }
+
     if (saveNoteBtn !== null) {
 
         saveNoteBtn.addEventListener("click", () => {
@@ -75,13 +131,22 @@ window.onload = () => {
             ],
 
             savedNotes = JSON.parse(sessionStorage.getItem("savedNotes"));
+            savedNotes = savedNotes === null ? [] : savedNotes;
+            //console.log(savedNotes, typeof savedNotes);
 
             if (noteTitle === '' || noteBody === '') {
-                msg = 'Note title and body cannot be empty.';
+                [msg, btnText] = [
+                    '⚠️Note title and body cannot be empty.',
+                    'Retry'
+                ];
+
             } else {
                 let newNote = new Note(noteTitle, noteBody);
                 //console.log(noteTitle, noteBody, newNote);
-                msg = `saving the note\nTitle: ${noteTitle}\nBody: ${noteBody}`;
+                [msg, btnText] = [
+                    `✅Saved the note<br>Title: ${noteTitle}<br>Body: ${noteBody}`,
+                    'Close'
+                ];
                 savedNotes.push(newNote);
                 sessionStorage.setItem("savedNotes", JSON.stringify(savedNotes));
 
@@ -89,7 +154,7 @@ window.onload = () => {
                 //console.log(savedNotes[0].title, savedNotes[0].body);
             }
 
-            infoDialog.innerHTML = `${msg}<br><div class="flex-cc dialogBtnWrapDiv"><button onclick="infoDialog.close(); saveNoteDialog.close()">Close</button></div>`;
+            infoDialog.innerHTML = `${msg}<br><div class="flex-cc dialogBtnWrapDiv"><button onclick="infoDialog.close(); saveNoteDialog.close()">${btnText}</button></div>`;
             infoDialog.showModal();
 
         });
@@ -97,24 +162,22 @@ window.onload = () => {
 
     /******************* Loading saved Notes *********************/
 
-    loadedNotes = JSON.parse(sessionStorage.getItem("savedNotes"));
-
-    //console.log(loadedNotes);
-
     if (bodyElem.id === 'gridBox') {
+
+        loadedNotes = JSON.parse(sessionStorage.getItem("savedNotes"));
+        //console.log(loadedNotes);
+        notesSectElem = document.getElementById('savedNotesSect');
+        deleteNoteBtn = document.getElementById('deleteNote');
+
+        deleteNoteBtn.addEventListener("click", () => {
+            deleteAndSaveNotes(deleteNoteBtn.dataset.noteIndex);
+            deleteDialog.close();
+        });
+
         if (loadedNotes !== null && loadedNotes.length !== 0) {
-            loadedNotes.forEach(el => {
-                console.log(el);
-                let noteCardElem = document.createElement('div');
-                ['noteCard', 'flex-cc', 'col'].forEach(el => {
-                    noteCardElem.classList.add(el);
-                });
-                noteCardElem.innerHTML = `<button class="deleteNoteBtn">Delete</button>
-    <h3>${el.title}</h3>
-    <p>${el.body}</p>`;
-                bodyElem.appendChild(noteCardElem);
-            });
+            loadNotes(loadedNotes);
         }
+
     }
 
 }
