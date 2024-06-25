@@ -23,27 +23,32 @@ function countingRuns() {
 }
 
 function deleteAndSaveNotes(noteIndex) {
-    //console.log(loadedNotes);
+    let prevLength = loadedNotes.length;
+    //console.log(`from deleteAndSaveNotes, prevLength: ${prevLength}, LoadedNotes:  ${loadedNotes}`);
     loadedNotes.splice(noteIndex, 1);
-    console.log(loadedNotes);
+    //console.log(loadedNotes);
     sessionStorage.setItem("savedNotes", JSON.stringify(loadedNotes));
-    if (loadedNotes !== null && loadedNotes.length !== 0) {
+    if ((loadedNotes !== null && loadedNotes.length !== 0) || prevLength === 1) {
+        //console.log('inside if block');
         loadNotes(loadedNotes);
     }
 }
 
 function loadNotes(notesArr) {
 
-    console.log(notesSectElem.children.length);
+    //console.log(notesSectElem.children.length);
 
-    if (notesSectElem.children.length !== 0) {
+    if (notesSectElem.children.length !== 0 && notesArr.length > 0) {
         //notesSectElem.replaceWith(notesSectElem.cloneNode(true));
         notesSectElem.innerHTML = '';
         console.log(notesSectElem.children.length);
+    } else if (notesArr.length === 0) {
+        notesSectElem.innerHTML = '';
     }
-    if (notesSectElem.children.length === 0) {
+
+    if (notesSectElem.children.length === 0 && notesArr.length > 0) {
         notesArr.forEach((el, ind) => {
-            console.log(el, ind);
+            //console.log(el, ind);
             let noteCardElem = document.createElement('div');
             ['noteCard', 'flex-cc', 'col'].forEach(el => {
                 noteCardElem.classList.add(el);
@@ -60,11 +65,10 @@ function loadNotes(notesArr) {
             deleteNoteBtn.addEventListener("click", (el) => {
                 let noteCard = el.target.parentElement;
                 let noteInd = noteCard.dataset.noteIndex;
-                console.log(noteInd);
+                //console.log(noteInd);
                 deleteDialog.children[0].innerHTML = `<b>${loadedNotes[noteInd].title}</b>?`;
                 deleteDialog.showModal();
                 deleteDialog.children[1].dataset.noteIndex = noteInd;
-                console.log(deleteDialog.children);
                 //deleteAndSaveNotes(noteCard.dataset.noteIndex);
             });
         });
