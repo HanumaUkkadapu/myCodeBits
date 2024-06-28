@@ -122,6 +122,7 @@ body {
 #createNoteWrapper input,
 #createNoteWrapper textarea {
     font-size: 14px;
+    padding: 6px;
 }
 
 #noteBody {
@@ -168,8 +169,34 @@ dialog[open] {
     margin: 2px;
 }
 
-.noteCard>.deleteNoteBtn {
+.noteCard>.btnsDiv {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+
+/********************************************************************/
+
+#editNoteDialog>h4 {
+    margin: 0;
+}
+
+#editNoteDialog[open] {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+}
+
+#editNoteDialog .inputWrapDiv {
+    align-items: stretch;
+}
+
+#editNoteDialog .inputWrapDiv>* {
+    padding: 6px;
+    margin: 3px 0;
+}
+
+#editNoteDialog .btnWrapDiv {
+    margin-top: 4px;
 }

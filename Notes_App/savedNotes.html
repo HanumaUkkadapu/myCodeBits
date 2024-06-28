@@ -1,3 +1,4 @@
+[4:28 PM] Ukkadapu, Tulasi Veera Hanuma (Cognizant)
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +12,23 @@
 <body id="gridBox">
     <section class="flex-cc col" id="savedNotesSect">
     </section>
-    <dialog id="deleteDialog">
+    <dialog id="deleteNoteDialog">
         Are you sure to delete the note titled <span id="deletedNoteTitle"></span> It will be deleted permanently.
-        <button id="deleteNote">Yes</button>
-        <button onclick="deleteDialog.close()">No</button>
+        <div>
+            <button id="deleteNote">Yes</button>
+            <button onclick="deleteNoteDialog.close()">No</button>
+        </div>
+    </dialog>
+    <dialog id="editNoteDialog">
+        <h4>Edit Note</h4>
+        <div class="inputWrapDiv flex-cc col">
+            <input type="text" name="edit-note-title" id="editNoteTitle">
+            <textarea name="edit-note-body" id="editNoteBody"></textarea>
+        </div>
+        <div class="btnWrapDiv">
+            <button id="saveEditedNote">Save</button>
+            <button onclick="editNoteDialog.close()">Cancel</button>
+        </div>
     </dialog>
     <script src="script.js"></script>
 </body>

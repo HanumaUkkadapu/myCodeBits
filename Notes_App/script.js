@@ -1,6 +1,7 @@
 let root,
     saveNoteBtn, infoDialog, noteTitleElem, noteBodyElem, savedNotes,
-    bodyElem, loadedNotes, notesSectElem, deleteNote;
+    bodyElem, loadedNotes, notesSectElem,
+    editSaveBtn, editedNoteTitle, editedNoteBody, deleteNoteDialogBtn;
 
 class Note {
     constructor(title, body) {
@@ -34,6 +35,16 @@ function deleteAndSaveNotes(noteIndex) {
     }
 }
 
+function editAndSaveNotes(noteIndex, newNoteDetails) {
+    //console.log(loadedNotes);
+    loadedNotes[noteIndex] = newNoteDetails;
+    sessionStorage.setItem("savedNotes", JSON.stringify(loadedNotes));
+    if (loadedNotes !== null && loadedNotes.length !== 0) {
+        //console.log('inside if block');
+        loadNotes(loadedNotes);
+    }
+}
+
 function loadNotes(notesArr) {
 
     //console.log(notesSectElem.children.length);
@@ -54,21 +65,40 @@ function loadNotes(notesArr) {
                 noteCardElem.classList.add(el);
             });
             noteCardElem.dataset.noteIndex = ind;
-            noteCardElem.innerHTML = `<button class="deleteNoteBtn">Delete</button>
+            noteCardElem.innerHTML = `<div class="btnsDiv">
+                    <button class="editNoteBtn">Edit</button>
+                    <button class="deleteNoteBtn">Delete</button>
+                </div>
                 <h3>${el.title}</h3>
                 <p>${el.body}</p>`;
             notesSectElem.appendChild(noteCardElem);
         });
 
-        let deleteNoteBtns = document.getElementsByClassName('deleteNoteBtn');
-        [...deleteNoteBtns].forEach((deleteNoteBtn) => {
-            deleteNoteBtn.addEventListener("click", (el) => {
-                let noteCard = el.target.parentElement;
+        let editNoteBtns = document.getElementsByClassName('editNoteBtn'),
+            deleteNoteBtns = document.getElementsByClassName('deleteNoteBtn');
+
+        [...editNoteBtns].forEach((editNoteBtn) => {
+            editNoteBtn.addEventListener("click", (el) => {
+                let noteCard = el.target.parentElement.parentElement;
                 let noteInd = noteCard.dataset.noteIndex;
                 //console.log(noteInd);
-                deleteDialog.children[0].innerHTML = `<b>${loadedNotes[noteInd].title}</b>?`;
-                deleteDialog.showModal();
-                deleteDialog.children[1].dataset.noteIndex = noteInd;
+                editNoteDialog.children[1].children[0].value = `${loadedNotes[noteInd].title}`;
+                editNoteDialog.children[1].children[1].value = `${loadedNotes[noteInd].body}`;
+                editNoteDialog.showModal();
+                editNoteDialog.children[2].children[0].dataset.noteIndex = noteInd;
+                //deleteAndSaveNotes(noteCard.dataset.noteIndex);
+            });
+        });
+
+        [...deleteNoteBtns].forEach((deleteNoteBtn) => {
+            deleteNoteBtn.addEventListener("click", (el) => {
+                let noteCard = el.target.parentElement.parentElement;
+                //console.log(noteCard);
+                let noteInd = noteCard.dataset.noteIndex;
+                //console.log(noteInd);
+                deleteNoteDialog.children[0].innerHTML = `<b>${loadedNotes[noteInd].title}</b>?`;
+                deleteNoteDialog.showModal();
+                deleteNoteDialog.children[1].children[0].dataset.noteIndex = noteInd;
                 //deleteAndSaveNotes(noteCard.dataset.noteIndex);
             });
         });
@@ -171,11 +201,22 @@ window.onload = () => {
         loadedNotes = JSON.parse(sessionStorage.getItem("savedNotes"));
         //console.log(loadedNotes);
         notesSectElem = document.getElementById('savedNotesSect');
-        deleteNoteBtn = document.getElementById('deleteNote');
 
-        deleteNoteBtn.addEventListener("click", () => {
-            deleteAndSaveNotes(deleteNoteBtn.dataset.noteIndex);
-            deleteDialog.close();
+        editSaveDialogBtn = document.getElementById('saveEditedNote'),
+            editedNoteTitle = document.getElementById('editNoteTitle'),
+            editedNoteBody = document.getElementById('editNoteBody'),
+            deleteNoteDialogBtn = document.getElementById('deleteNote');
+
+        editSaveDialogBtn.addEventListener("click", (el) => {
+            let newNoteDetails = [editedNoteTitle.value, editedNoteBody.value];
+            let editedNote = new Note(...newNoteDetails);
+            editAndSaveNotes(el.target.dataset.noteIndex, editedNote);
+            editNoteDialog.close();
+        });
+        deleteNoteDialogBtn.addEventListener("click", (el) => {
+            //console.log(`deleteNoteDialogBtn ind: ${el.target.dataset.noteIndex}`)
+            deleteAndSaveNotes(el.target.dataset.noteIndex);
+            deleteNoteDialog.close();
         });
 
         if (loadedNotes !== null && loadedNotes.length !== 0) {
