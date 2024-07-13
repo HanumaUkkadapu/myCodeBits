@@ -70,10 +70,9 @@ gist.create({
 window.onload = async() => {
 
     let [origin, pathname] = [this.location.origin, this.location.pathname],
-    dirs = [],
-        linksUL = document.getElementById('codeBits-list');
+    linksUL = document.getElementById('codeBits-list');
 
-    [origin, pathname] = ['https://hanumaukkadapu.github.io', '/myCodeBits/'];
+    //[origin, pathname] = ['https://hanumaukkadapu.github.io', '/myCodeBits/'];
 
     let regExp = /\/(?<userName>\w+)/,
         reg = origin.match(regExp).groups;
@@ -87,18 +86,28 @@ window.onload = async() => {
             //dataJSON = { "message": "API rate limit exceeded for 139.5.250.94. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)", "documentation_url": "https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting" };
 
             //console.log(dataJSON.message.indexOf("API rate limit exceeded"));
-            if (!(dataJSON.length > 0) && dataJSON.message.indexOf("API rate limit exceeded") === 0) {
+            if (!(dataJSON.length > 0) && (dataJSON.message.indexOf("API rate limit exceeded") === 0 || dataJSON.message.indexOf("Not Found") === 0)) {
                 console.log(dataJSON);
+                fetch('reposData.json')
+                    .then(resD => resD.json())
+                    .then(repoDataJSON => {
+                        console.log(repoDataJSON);
+                        populateRepoLinks(linksUL, repoDataJSON);
+                    });
             } else {
-                linksUL.textContent = '';
+                //console.log(dataJSON);
+                let reposArr = [];
                 dataJSON.forEach((obj) => {
                     if (obj.type === 'dir') {
-                        dirs.push(obj.name);
-                        let li = `<li><a href="${obj.name}/index.html" target="_blank" rel="noreferer noopener">${obj.name}</a></li>`;
-                        linksUL.innerHTML += li;
+                        let el = {
+                            repoPath: obj.name,
+                            dispalyName: obj.name
+                        }
+                        reposArr.push(el);
                     }
                 });
-                console.log(dirs);
+                populateRepoLinks(linksUL, reposArr);
+                //console.log(reposArr);
             }
         });
 
@@ -133,4 +142,17 @@ window.onload = async() => {
     		});
     		*/
 
+}
+
+function populateRepoLinks(ULElem, reposArr) {
+
+    ULElem.textContent = '';
+    let dirs = [];
+
+    reposArr.forEach((obj) => {
+        dirs.push(obj.repoPath);
+        let li = `<li><a href="${obj.repoPath}/index.html" target="_blank" rel="noreferer noopener">${obj.dispalyName}</a></li>`;
+        ULElem.innerHTML += li;
+    });
+    console.log(dirs);
 }

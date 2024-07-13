@@ -1,0 +1,18 @@
+[{
+        "repoPath": "color-picker-tool",
+        "dispalyName": "Color Picker Tool"
+    },
+    {
+        "repoPath": "materialColorPalette",
+        "dispalyName": "Material Color Palette"
+    }, {
+        "repoPath": "sortingVisualiser",
+        "dispalyName": "Sorting Visualiser"
+    }, {
+        "repoPath": "emailValidator",
+        "dispalyName": "Email Validator"
+    }, {
+        "repoPath": "Notes_App",
+        "dispalyName": "Notes App"
+    }
+]
